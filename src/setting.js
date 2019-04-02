@@ -3,8 +3,8 @@ export default {
   // 支持快捷键 例如 ctrl+shift+s
   hotkey: {
     search: {
-      open: 's',
-      close: 'esc'
+      // open: 's',
+      // close: 'esc'
     }
   },
   // 侧边栏默认折叠状态
@@ -26,7 +26,7 @@ export default {
   },
   // 菜单搜索
   search: {
-    enable: true
+    enable: false
   },
   // 注册的主题
   theme: {
@@ -36,28 +36,28 @@ export default {
         name: 'd2',
         preview: 'image/theme/d2/preview@2x.png'
       },
-      {
-        title: '紫罗兰',
-        name: 'violet',
-        preview: 'image/theme/violet/preview@2x.png'
-      },
-      {
-        title: '简约线条',
-        name: 'line',
-        backgroundImage: 'image/theme/line/bg.jpg',
-        preview: 'image/theme/line/preview@2x.png'
-      },
-      {
-        title: '流星',
-        name: 'star',
-        backgroundImage: 'image/theme/star/bg.jpg',
-        preview: 'image/theme/star/preview@2x.png'
-      },
-      {
-        title: 'Tomorrow Night Blue (vsCode)',
-        name: 'tomorrow-night-blue',
-        preview: 'image/theme/tomorrow-night-blue/preview@2x.png'
-      }
+      // {
+      //   title: '紫罗兰',
+      //   name: 'violet',
+      //   preview: 'image/theme/violet/preview@2x.png'
+      // },
+      // {
+      //   title: '简约线条',
+      //   name: 'line',
+      //   backgroundImage: 'image/theme/line/bg.jpg',
+      //   preview: 'image/theme/line/preview@2x.png'
+      // },
+      // {
+      //   title: '流星',
+      //   name: 'star',
+      //   backgroundImage: 'image/theme/star/bg.jpg',
+      //   preview: 'image/theme/star/preview@2x.png'
+      // },
+      // {
+      //   title: 'Tomorrow Night Blue (vsCode)',
+      //   name: 'tomorrow-night-blue',
+      //   preview: 'image/theme/tomorrow-night-blue/preview@2x.png'
+      // }
     ]
   },
   // 是否默认开启页面切换动画

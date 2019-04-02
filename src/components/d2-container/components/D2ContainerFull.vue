@@ -15,7 +15,7 @@
 <script>
 import scroll from './mixins/normal'
 export default {
-  name: 'd2-container-full',
+  name: 'D2ContainerFull',
   mixins: [
     scroll
   ],

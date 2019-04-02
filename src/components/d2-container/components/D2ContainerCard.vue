@@ -1,12 +1,14 @@
 <template>
-  <div class="d2-container-ghost">
-    <div v-if="$slots.header" class="d2-container-ghost__header" ref="header">
+  <div class="d2-container-card">
+    <div v-if="$slots.header" class="d2-container-card__header" ref="header">
       <slot name="header"/>
     </div>
-    <div class="d2-container-ghost__body" ref="body">
-      <slot/>
+    <div class="d2-container-card__body" ref="body">
+      <div class="d2-container-card__body-card">
+        <slot/>
+      </div>
     </div>
-    <div v-if="$slots.footer" class="d2-container-ghost__footer" ref="footer">
+    <div v-if="$slots.footer" class="d2-container-card__footer" ref="footer">
       <slot name="footer"/>
     </div>
   </div>
@@ -15,7 +17,7 @@
 <script>
 import scroll from './mixins/normal'
 export default {
-  name: 'd2-container-ghost',
+  name: 'D2ContainerCard',
   mixins: [
     scroll
   ],

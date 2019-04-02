@@ -2,7 +2,7 @@
   <div class="login">
     <el-card>
       <el-form class="login-form" ref="loginForm" :rules="rules" :model="loginData">
-        <el-form-item prop="uesrname"> 
+        <el-form-item prop="uesrname">
           <el-input type="text" v-model="loginData.username" placeholder="用户名">
             <icon slot="prepend" name="user-circle-o"></icon>
           </el-input>
@@ -30,7 +30,7 @@
 import icon from '@/components/d2-icon'
 import util from '@/libs/util'
 import identify from './Identify.vue'
-import {mapActions} from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Login',

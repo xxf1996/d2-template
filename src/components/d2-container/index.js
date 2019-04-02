@@ -1,14 +1,14 @@
 // 组件
-import d2ContainerFull from './components/d2-container-full.vue'
-import d2ContainerFullBs from './components/d2-container-full-bs.vue'
-import d2ContainerGhost from './components/d2-container-ghost.vue'
-import d2ContainerGhostBs from './components/d2-container-ghost-bs.vue'
-import d2ContainerCard from './components/d2-container-card.vue'
-import d2ContainerCardBs from './components/d2-container-card-bs.vue'
-import d2Source from './components/d2-source.vue'
+import D2ContainerFull from './components/D2ContainerFull.vue'
+import D2ContainerFullBs from './components/D2ContainerFullBs.vue'
+import D2ContainerGhost from './components/D2ContainerGhost.vue'
+import D2ContainerGhostBs from './components/D2ContainerGhostBs.vue'
+import D2ContainerCard from './components/D2ContainerCard.vue'
+import D2ContainerCardBs from './components/D2ContainerCardBs.vue'
+import D2Source from './components/D2Source.vue'
 
 export default {
-  name: 'd2-container',
+  name: 'D2Container',
   props: {
     // 容器样式
     type: {
@@ -26,12 +26,12 @@ export default {
   computed: {
     // 始终返回渲染组件
     component () {
-      if (this.type === 'card' && !this.betterScroll) return d2ContainerCard
-      if (this.type === 'card' && this.betterScroll) return d2ContainerCardBs
-      if (this.type === 'ghost' && !this.betterScroll) return d2ContainerGhost
-      if (this.type === 'ghost' && this.betterScroll) return d2ContainerGhostBs
-      if (this.type === 'full' && !this.betterScroll) return d2ContainerFull
-      if (this.type === 'full' && this.betterScroll) return d2ContainerFullBs
+      if (this.type === 'card' && !this.betterScroll) return D2ContainerCard
+      if (this.type === 'card' && this.betterScroll) return D2ContainerCardBs
+      if (this.type === 'ghost' && !this.betterScroll) return D2ContainerGhost
+      if (this.type === 'ghost' && this.betterScroll) return D2ContainerGhostBs
+      if (this.type === 'full' && !this.betterScroll) return D2ContainerFull
+      if (this.type === 'full' && this.betterScroll) return D2ContainerFullBs
       else {
         return 'div'
       }
@@ -53,10 +53,10 @@ export default {
         on: {
           scroll: e => this.$emit('scroll', e)
         }
-      }, slots),
-      h(d2Source, {
-        props: this.$attrs
-      })
+      }, slots)
+      // h(D2Source, {
+      //   props: this.$attrs
+      // })
     ])
   },
   methods: {

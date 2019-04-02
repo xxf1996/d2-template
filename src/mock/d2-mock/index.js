@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 import qs from 'qs'
-import withCredentials from './patch/withCredentials'
+import withCredentials from './patch/with-credentials'
 
 /* 补丁 */
 withCredentials(Mock)

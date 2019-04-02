@@ -1,6 +1,6 @@
-import cookies from './util.cookies'
-import db from './util.db'
-import log from './util.log'
+import cookies from './cookies'
+import db from './db'
+import log from './log'
 
 const util = {
   cookies,
