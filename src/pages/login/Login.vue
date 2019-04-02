@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <el-card>
+      <h2 style="text-align: center;">{{appName}}</h2>
       <el-form class="login-form" ref="loginForm" :rules="rules" :model="loginData">
         <el-form-item prop="uesrname">
           <el-input type="text" v-model="loginData.username" placeholder="用户名">
@@ -13,7 +14,7 @@
           </el-input>
         </el-form-item>
         <el-form-item prop="code">
-          <el-input type="text" v-model="loginData.code" placeholder="- - - -">
+          <el-input class="code-input" type="text" v-model="loginData.code" placeholder="- - - -">
             <template slot="prepend">验证码</template>
             <template slot="append">
               <identify :identifyCode="identifyCode" :content-width="80" :content-height="35" @click.native="refreshCode"></identify>
@@ -27,19 +28,20 @@
 </template>
 
 <script>
-import icon from '@/components/d2-icon'
+import Icon from '@/components/d2-icon'
 import util from '@/libs/util'
-import identify from './Identify.vue'
+import Identify from './Identify.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'Login',
   components: {
-    icon,
-    identify
+    Icon,
+    Identify
   },
   data () {
     return {
+      appName: 'xxx平台',
       loginData: {
         username: 'admin',
         password: 'admin',
@@ -109,12 +111,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '../../assets/style/public.scss';
   .login {
-    width: 400px;
+    width: 300px;
   }
   .login-btn {
     width: 100%;
+  }
+  .code-input .el-input-group__append {
+    padding: 0 5px;
   }
 </style>
