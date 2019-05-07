@@ -32,6 +32,7 @@ import Icon from '@/components/d2-icon'
 import util from '@/libs/util'
 import Identify from './Identify.vue'
 import { mapActions } from 'vuex'
+import packageInfo from '../../../package.json'
 
 export default {
   name: 'Login',
@@ -41,7 +42,7 @@ export default {
   },
   data () {
     return {
-      appName: 'xxx平台',
+      appName: packageInfo.appName,
       loginData: {
         username: 'admin',
         password: 'admin',
@@ -86,9 +87,6 @@ export default {
             // 删除 cookie 中保存的重定向页面
             util.cookies.remove('redirect')
           })
-        } else {
-          // 登录表单校验失败
-          this.$message.error('表单校验失败')
         }
       })
     },

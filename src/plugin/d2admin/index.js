@@ -13,6 +13,7 @@ import d2VueFiltersDate from '@d2-projects/vue-filters-date'
 import pluginError from '@/plugin/error'
 import pluginLog from '@/plugin/log'
 import pluginOpen from '@/plugin/open'
+import packageInfo from '../../../package.json'
 
 export default {
   async install (Vue, options) {
@@ -24,7 +25,7 @@ export default {
     // 当前的 baseUrl
     Vue.prototype.$baseUrl = process.env.BASE_URL
     // 当前版本
-    Vue.prototype.$version = process.env.VUE_APP_VERSION
+    Vue.prototype.$version = packageInfo.$version
     // 构建时间
     Vue.prototype.$buildTime = process.env.VUE_APP_BUILD_TIME
     // Element

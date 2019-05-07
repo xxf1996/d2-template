@@ -1,4 +1,5 @@
 import util from '@/libs/util.js'
+import packageInfo from '../../../package.json'
 
 export default {
   namespaced: true,
@@ -8,10 +9,10 @@ export default {
      * @param {Object} state vuex state
      */
     versionShow () {
-      util.log.capsule('D2Admin', `v${process.env.VUE_APP_VERSION}`)
-      console.log('Github https://github.com/d2-projects/d2-admin')
-      console.log('Doc    https://doc.d2admin.fairyever.com/zh/')
-      console.log('请不要吝啬您的 star，谢谢 ~')
+      util.log.capsule(packageInfo.name, `v${packageInfo.version}`)
+      console.log('模板基于d2admin项目')
+      util.log.capsule('Github', 'https://github.com/d2-projects/d2-admin')
+      util.log.capsule('文档地址', 'https://doc.d2admin.fairyever.com/zh/')
     }
   }
 }

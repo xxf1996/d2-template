@@ -3,6 +3,14 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 import util from '@/libs/util'
 
+// api请求域名配置，根据不同环境站点的域名进行相应的api域名设置
+const httpMap = {
+  'channel-admin.test.bhbapp.cn': 'http://videostore-merchant-api.test.bhbapp.cn', // 测试环境
+  'channel-admin-gray.bhbapp.cn': 'https://videostore-merchant-api-gray.bhbapp.cn' // 预备环境
+}
+
+const apiAddr = httpMap[location.host] || 'http://videostore-merchant-api.test.bhbapp.cn' // 获取当前站点下api域名
+
 // 创建一个错误
 function errorCreate (msg) {
   const err = new Error(msg)
@@ -27,7 +35,7 @@ function errorLog (err) {
   Message({
     message: err.message,
     type: 'error',
-    duration: 5 * 1000
+    duration: 3 * 1000
   })
 }
 
@@ -39,8 +47,7 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use(
   config => {
-    // 根据平台区分请求接口的地址
-    config.baseURL = process.env[`VUE_APP_${config.platform}`]
+    config.baseURL = apiAddr
     // 在请求发送之前做一些处理
     const token = util.cookies.get('token')
     // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改

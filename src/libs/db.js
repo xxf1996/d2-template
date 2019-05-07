@@ -1,7 +1,8 @@
 import low from 'lowdb'
 import LocalStorage from 'lowdb/adapters/LocalStorage'
+import packageInfo from '../../package.json'
 
-const adapter = new LocalStorage(`d2admin-${process.env.VUE_APP_VERSION}`)
+const adapter = new LocalStorage(`${packageInfo.name}-${packageInfo.version}`) // 持久化数据前缀？
 const db = low(adapter)
 
 db

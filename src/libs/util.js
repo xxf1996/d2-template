@@ -1,6 +1,7 @@
 import cookies from './cookies'
 import db from './db'
 import log from './log'
+import packageInfo from '../../package.json'
 
 const util = {
   cookies,
@@ -13,7 +14,7 @@ const util = {
  * @param {String} title 标题
  */
 util.title = function (titleText) {
-  const processTitle = process.env.VUE_APP_TITLE || 'D2Admin'
+  const processTitle = packageInfo.appName || 'd2admin平台'
   window.document.title = `${processTitle}${titleText ? ` | ${titleText}` : ''}`
 }
 

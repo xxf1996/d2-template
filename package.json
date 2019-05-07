@@ -1,5 +1,6 @@
 {
   "name": "d2-template",
+  "appName": "xxx平台",
   "version": "0.1.0",
   "private": true,
   "scripts": {
