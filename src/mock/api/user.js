@@ -27,5 +27,16 @@ export default [
         }
       }
     }
+  },
+  {
+    path: '/api/logout',
+    method: 'delete',
+    handle () {
+      return {
+        code: 0,
+        msg: '登出成功',
+        data: {}
+      }
+    }
   }
 ]

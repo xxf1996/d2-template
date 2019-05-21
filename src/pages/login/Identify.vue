@@ -130,3 +130,9 @@ export default{
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .s-canvas {
+    line-height: 0;
+  }
+</style>

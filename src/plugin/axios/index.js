@@ -5,11 +5,11 @@ import util from '@/libs/util'
 
 // api请求域名配置，根据不同环境站点的域名进行相应的api域名设置
 const httpMap = {
-  'channel-admin.test.bhbapp.cn': 'http://videostore-merchant-api.test.bhbapp.cn', // 测试环境
-  'channel-admin-gray.bhbapp.cn': 'https://videostore-merchant-api-gray.bhbapp.cn' // 预备环境
+  'demo.test.com': 'http://api.test.com', // 测试环境
+  'demo.gray.com': 'https://api.gray.com' // 预备环境
 }
 
-const apiAddr = httpMap[location.host] || 'http://videostore-merchant-api.test.bhbapp.cn' // 获取当前站点下api域名
+const apiAddr = httpMap[location.host] || 'http://api.test.com' // 获取当前站点下api域名
 
 // 创建一个错误
 function errorCreate (msg) {

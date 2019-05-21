@@ -2,7 +2,12 @@
   <div class="login">
     <el-card>
       <h2 style="text-align: center;">{{appName}}</h2>
-      <el-form class="login-form" ref="loginForm" :rules="rules" :model="loginData">
+      <el-form
+        class="login-form"
+        ref="loginForm"
+        :rules="rules"
+        :model="loginData"
+        @keyup.enter.native="submit">
         <el-form-item prop="uesrname">
           <el-input type="text" v-model="loginData.username" placeholder="用户名">
             <icon slot="prepend" name="user-circle-o"></icon>
@@ -17,7 +22,7 @@
           <el-input class="code-input" type="text" v-model="loginData.code" placeholder="- - - -">
             <template slot="prepend">验证码</template>
             <template slot="append">
-              <identify :identifyCode="identifyCode" :content-width="80" :content-height="35" @click.native="refreshCode"></identify>
+              <identify :identifyCode="identifyCode" :content-width="80" :content-height="38" @click.native="refreshCode"></identify>
             </template>
           </el-input>
         </el-form-item>
@@ -29,9 +34,10 @@
 
 <script>
 import Icon from '@/components/d2-icon'
+import { login } from '@/api/user'
+import { mapActions } from 'vuex'
 import util from '@/libs/util'
 import Identify from './Identify.vue'
-import { mapActions } from 'vuex'
 import packageInfo from '../../../package.json'
 
 export default {
@@ -65,9 +71,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions('d2admin/account', [
-      'login'
-    ]),
+    ...mapActions('d2admin/account', {
+      loadAccount: 'load'
+    }),
+    ...mapActions('d2admin/user', {
+      setUser: 'set'
+    }),
     /**
      * @description 提交表单
      */
@@ -75,11 +84,16 @@ export default {
     submit () {
       this.$refs.loginForm.validate((valid) => {
         if (valid && this.loginData.code === this.identifyCode) {
-          this.login({
-            vm: this,
+          login({
             username: this.loginData.username,
             password: this.loginData.password
-          }).then(() => {
+          }).then(async (res) => {
+            // 保存token作为登录的凭据
+            util.cookies.set('token', res.token)
+            await this.setUser({
+              name: res.name
+            })
+            await this.loadAccount()
             // 更新路由 尝试去获取 cookie 里保存的需要重定向的页面完整地址
             const path = util.cookies.get('redirect')
             // 根据是否存有重定向页面判断如何重定向
@@ -118,6 +132,6 @@ export default {
     width: 100%;
   }
   .code-input .el-input-group__append {
-    padding: 0 5px;
+    padding: 0;
   }
 </style>
