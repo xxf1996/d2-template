@@ -1,6 +1,6 @@
 import demo from './demo'
 
-import layoutHeaderAside from '@/layout/header-aside'
+import layoutHeaderAside from '@/layout/Index'
 
 /**
  * 在主框架内显示

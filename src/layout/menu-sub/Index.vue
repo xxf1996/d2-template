@@ -16,7 +16,7 @@
 <script>
 import { uniqueId } from 'lodash'
 // 组件
-import d2LayoutMainMenuItem from '../menu-item'
+import d2LayoutMainMenuItem from '../menu-item/Index'
 
 export default {
   name: 'D2LayoutHeaderAsideMenuSub',

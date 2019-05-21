@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import bs from './mixins/bs'
+import bs from '../mixins/bs'
 export default {
   name: 'D2ContainerCardBs',
   mixins: [

@@ -62,8 +62,8 @@
 import { mapState, mapActions } from 'vuex'
 export default {
   components: {
-    D2Contextmenu: () => import('../contextmenu'),
-    D2ContextmenuList: () => import('../contextmenu/components/contentmenuList')
+    D2Contextmenu: () => import('../contextmenu/Index'),
+    D2ContextmenuList: () => import('../contextmenu/MenuList')
   },
   data () {
     return {

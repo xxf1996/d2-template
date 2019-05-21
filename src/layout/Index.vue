@@ -63,10 +63,10 @@
 </template>
 
 <script>
-import d2MenuSide from './components/menu-side'
-import d2MenuHeader from './components/menu-header'
-import d2Tabs from './components/tabs'
-import d2HeaderUser from './components/header-user'
+import d2MenuSide from './menu-side/Index'
+import d2MenuHeader from './menu-header/Index'
+import d2Tabs from './tabs/Index'
+import d2HeaderUser from './header-user/Index'
 import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   name: 'd2-layout-header-aside',

@@ -10,12 +10,12 @@
         @keyup.enter.native="submit">
         <el-form-item prop="uesrname">
           <el-input type="text" v-model="loginData.username" placeholder="用户名">
-            <icon slot="prepend" name="user-circle-o"></icon>
+            <d2-icon slot="prepend" name="user-circle-o"></d2-icon>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input type="password" v-model="loginData.password" placeholder="密码">
-            <icon slot="prepend" name="keyboard-o"></icon>
+            <d2-icon slot="prepend" name="keyboard-o"></d2-icon>
           </el-input>
         </el-form-item>
         <el-form-item prop="code">
@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import Icon from '@/components/d2-icon'
 import { login } from '@/api/user'
 import { mapActions } from 'vuex'
 import util from '@/libs/util'
@@ -43,7 +42,6 @@ import packageInfo from '../../../package.json'
 export default {
   name: 'Login',
   components: {
-    Icon,
     Identify
   },
   data () {

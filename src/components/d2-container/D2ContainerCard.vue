@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import scroll from './mixins/normal'
+import scroll from '../mixins/normal'
 export default {
   name: 'D2ContainerCard',
   mixins: [

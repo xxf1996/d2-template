@@ -21,8 +21,8 @@
 <script>
 import { mapState } from 'vuex'
 import menuMixin from '../mixin/menu'
-import d2LayoutMainMenuItem from '../components/menu-item/Index.vue'
-import d2LayoutMainMenuSub from '../components/menu-sub/Index.vue'
+import d2LayoutMainMenuItem from '../menu-item/Index.vue'
+import d2LayoutMainMenuSub from '../menu-sub/Index.vue'
 import BScroll from 'better-scroll'
 export default {
   name: 'D2LayoutHeaderAsideMenuSide',

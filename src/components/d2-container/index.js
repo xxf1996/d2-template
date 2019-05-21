@@ -1,10 +1,10 @@
 // 组件
-import D2ContainerFull from './components/D2ContainerFull.vue'
-import D2ContainerFullBs from './components/D2ContainerFullBs.vue'
-import D2ContainerGhost from './components/D2ContainerGhost.vue'
-import D2ContainerGhostBs from './components/D2ContainerGhostBs.vue'
-import D2ContainerCard from './components/D2ContainerCard.vue'
-import D2ContainerCardBs from './components/D2ContainerCardBs.vue'
+import D2ContainerFull from './D2ContainerFull.vue'
+import D2ContainerFullBs from './D2ContainerFullBs.vue'
+import D2ContainerGhost from './D2ContainerGhost.vue'
+import D2ContainerGhostBs from './D2ContainerGhostBs.vue'
+import D2ContainerCard from './D2ContainerCard.vue'
+import D2ContainerCardBs from './D2ContainerCardBs.vue'
 
 export default {
   name: 'D2Container',
