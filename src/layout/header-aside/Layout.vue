@@ -1,8 +1,7 @@
 <template>
   <div
     class="d2-layout-header-aside-group"
-    :style="styleLayoutMainGroup"
-    :class="{grayMode: grayActive}">
+    :style="styleLayoutMainGroup">
     <!-- 半透明遮罩 -->
     <div class="d2-layout-header-aside-mask"></div>
     <!-- 主体内容 -->
@@ -10,9 +9,6 @@
       <!-- 顶栏 -->
       <div
         class="d2-theme-header"
-        :style="{
-          opacity: this.searchActive ? 0.5 : 1
-        }"
         flex-box="0"
         flex>
         <div class="logo-group" :style="{width: asideCollapse ? asideWidthCollapse : asideWidth}" flex-box="0">
@@ -26,11 +22,6 @@
         <!-- 顶栏右侧 -->
         <div class="d2-header-right" flex-box="0">
           <!-- 如果你只想在开发环境显示这个按钮请添加 v-if="$env === 'development'" -->
-          <d2-header-search v-if="rightConfig.search" @click="handleSearchClick"/>
-          <d2-header-error-log v-if="rightConfig.log"/>
-          <d2-header-fullscreen v-if="rightConfig.full"/>
-          <d2-header-theme v-if="rightConfig.theme"/>
-          <d2-header-size v-if="rightConfig.size"/>
           <d2-header-user v-if="rightConfig.user"/>
         </div>
       </div>
@@ -42,24 +33,15 @@
           ref="aside"
           class="d2-theme-container-aside"
           :style="{
-            width: asideCollapse ? asideWidthCollapse : asideWidth,
-            opacity: this.searchActive ? 0.5 : 1
+            width: asideCollapse ? asideWidthCollapse : asideWidth
           }">
           <d2-menu-side/>
         </div>
         <!-- 主体 -->
         <div class="d2-theme-container-main" flex-box="1" flex>
-          <!-- 搜索 -->
-          <transition name="fade-scale">
-            <div v-show="searchActive" class="d2-theme-container-main-layer" flex="dir:top">
-              <d2-panel-search
-                ref="panelSearch"
-                @close="searchPanelClose"/>
-            </div>
-          </transition>
           <!-- 内容 -->
           <transition name="fade-scale">
-            <div v-show="!searchActive" class="d2-theme-container-main-layer" flex="dir:top">
+            <div class="d2-theme-container-main-layer" flex="dir:top">
               <!-- tab -->
               <div class="d2-theme-container-main-header" flex-box="0">
                 <d2-tabs/>
@@ -84,29 +66,15 @@
 import d2MenuSide from './components/menu-side'
 import d2MenuHeader from './components/menu-header'
 import d2Tabs from './components/tabs'
-import d2HeaderFullscreen from './components/header-fullscreen'
-import d2HeaderSearch from './components/header-search'
-import d2HeaderSize from './components/header-size'
-import d2HeaderTheme from './components/header-theme'
 import d2HeaderUser from './components/header-user'
-import d2HeaderErrorLog from './components/header-error-log'
 import { mapState, mapGetters, mapActions } from 'vuex'
-import mixinSearch from './mixins/search'
 export default {
   name: 'd2-layout-header-aside',
-  mixins: [
-    mixinSearch
-  ],
   components: {
     d2MenuSide,
     d2MenuHeader,
     d2Tabs,
-    d2HeaderFullscreen,
-    d2HeaderSearch,
-    d2HeaderSize,
-    d2HeaderTheme,
-    d2HeaderUser,
-    d2HeaderErrorLog
+    d2HeaderUser
   },
   data () {
     return {
@@ -116,11 +84,6 @@ export default {
       asideWidthCollapse: '65px',
       // [顶部右侧] 图标配置，true为显示
       rightConfig: {
-        search: false, // 页面搜索
-        log: this.$env === 'development', // 日志
-        full: true, // 全屏显示
-        theme: false, // 主题设置
-        size: false, // 字体大小
         user: true // 用户设置
       }
     }
@@ -128,7 +91,6 @@ export default {
   computed: {
     ...mapState('d2admin', {
       keepAlive: state => state.page.keepAlive,
-      grayActive: state => state.gray.active,
       transitionActive: state => state.transition.active,
       asideCollapse: state => state.menu.asideCollapse
     }),
